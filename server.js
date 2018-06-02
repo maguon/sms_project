@@ -96,7 +96,7 @@ function createServer() {
     // static files: /, /index.html, /images...
     //var STATIS_FILE_RE = /\/?\.css|\/?\.js|\/?\.png|\/?\.jpg|\/?\.gif|\/?\.jpeg|\/?\.less|\/?\.eot|\/?\.svg|\/?\.ttf|\/?\.otf|\/?\.woff|\/?\.pdf|\/?\.ico|\/?\.json|\/?\.wav|\/?\.mp3/;
     var STATIS_FILE_RE = /\.(css|js|jpe?g|png|gif|less|eot|svg|bmp|tiff|ttf|otf|woff|pdf|ico|json|wav|ogg|mp3?|xml|woff2|map|csv)$/i;
-    server.get(STATIS_FILE_RE, restify.serveStatic({ directory: './public/web', default: 'admin_login.html', maxAge: 0 }));
+    server.get(STATIS_FILE_RE, restify.serveStatic({ directory: './public/web', default: 'common_login.html', maxAge: 0 }));
 //    server.get(/^\/((.*)(\.)(.+))*$/, restify.serveStatic({ directory: './TruMenuWeb', default: "index.html" }));
 
 

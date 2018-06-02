@@ -8,7 +8,8 @@ var sysConfig = require('../config/SystemConfig.js');
 
 var HttpError = require('restify-errors').HttpError;;
 
-
+var log4js = require('log4js');
+log4js.configure(sysConfig.loggerConfig);
 
 function ServerLogger(options) {
     assert.object(options, 'options');
@@ -91,8 +92,7 @@ function ServerLogger(options) {
 
 
 function createLogger(name){
-    var log4js = require('log4js');
-    log4js.configure(sysConfig.loggerConfig);
+
     var logger = log4js.getLogger(name);
     //logger.setLevel(sysConfig.logLevel);
     return logger;

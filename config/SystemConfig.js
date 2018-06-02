@@ -14,7 +14,7 @@ var mysqlConnectOptions ={
 
 var logLevel = 'DEBUG';
 var loggerConfig = {
-    appenders: { file: { type: 'file', filename: 'honya_api.log' } ,console: { type: 'stdout' },},
+    appenders: { file: { type: 'file', filename: 'sms_project.log' } ,console: { type: 'stdout' },},
     categories: { default: { appenders: ['console','file'], level: 'debug' } }
 }
 

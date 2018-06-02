@@ -3,6 +3,7 @@ app.controller("operate_controller", ["_basic", "_config", "_host", "$scope", fu
     $scope.phoneArray =[];
     $scope.operateStatus = "1";
     $scope.currentUserPhoneId = null;
+    $scope.dateId =123456;
 
     $scope.start = 0;
     $scope.size =11;
@@ -87,6 +88,9 @@ app.controller("operate_controller", ["_basic", "_config", "_host", "$scope", fu
             url = "?remarkStatus=1";
         }else {
             url = "?";
+        }
+        if($scope.dateId){
+            url = url+ "&dateId="+$scope.dateId
         }
         url= url + "&start="+$scope.start +"&size="+$scope.size;
         _basic.get(_host.api_url + "/user/" + userId + "/userPhone"+ url).then(function (data) {

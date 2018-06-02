@@ -1,0 +1,135 @@
+<div>
+    <div id="newUserModal" class="modal">
+        <div class="modal-content">
+            <h6 class="center">新增用户</h6>
+            <div class="col s12">
+                <form class="col s12">
+                    <div class="col s12" style="margin-bottom: 0;">
+                        <div class="input-field col l4 m6 s12">
+                            <input id="mobile" type="text" ng-model="mobile" class="validate">
+                            <label for="mobile">手机</label>
+                        </div>
+                        <div class="input-field col l4 m6 s12">
+                            <input  id="password" type="password"ng-model="password" class="validate">
+                            <label for="password">密码</label>
+                        </div>
+                        <div class="input-field col l4 m6 s12">
+                            <input  id="name" type="text"  ng-model="realName" class="validate">
+                            <label for="name">姓名</label>
+                        </div>
+                    </div>
+                    <div class="col s12" style="margin-bottom: 0;">
+                        <div class="input-field col s12">
+                            <textarea id="remark" class="materialize-textarea" ng-model="remark"></textarea>
+                            <label for="remark">备注</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="modal-footer">
+
+            <button class="btn-floating waves-light waves-effect cyan lighten-2 right" style="margin-left: 10px" ng-click="createUser()">
+                <i class="mdi mdi-check"></i>
+            </button>
+            <a  class=" modal-action modal-close waves-effect waves-light grey lighten-1 btn-floating right"  >
+                <i class="mdi mdi-close"></i>
+            </a>
+        </div>
+    </div>
+    <div id="userModal" class="modal">
+        <form name="change_operatorForm" novalidate>
+            <div class="modal-content">
+                <h6 class="center">用户信息</h6>
+                <div class="col s12">
+                    <div class="input-field col l6 m6 s12">
+                        <input id="user_mobile" type="text" class="validate" ng-model="userDetail.mobile">
+                        <label for="user_mobile">手机</label>
+                    </div>
+                    <div class="input-field col l6 m6 s12">
+                        <input  id="user_name" type="text" class="validate" ng-model="userDetail.real_name">
+                        <label for="user_name">姓名</label>
+                    </div>
+                </div>
+                <div class="col s12">
+                    <div class="input-field col s12">
+                        <textarea id="user_remark" class="materialize-textarea" ng-model="userDetail.remark"></textarea>
+                        <label for="user_remark">备注</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-floating waves-light waves-effect cyan lighten-2 right" style="margin-left: 10px" ng-click="updateUserInfo()">
+                    <i class="mdi mdi-check"></i>
+                </button>
+                <a  class=" modal-action modal-close waves-effect waves-light grey lighten-1 btn-floating right"  >
+                    <i class="mdi mdi-close"></i>
+                </a>
+            </div>
+        </form>
+    </div>
+    <div class="row" style="padding: 0 2%;">
+        <div class="col s12 card " style="padding: 20px">
+
+            <div class="right">
+                <!--<a class="btn-floating btn-large waves-light waves-effect red lighten-2  btn vc-center"
+                   style="margin-right: 10px" ng-click="clickSearch()">
+                    <i class="mdi mdi-magnify"></i>
+                </a>-->
+
+                <a class="btn-floating btn-large waves-light waves-effect cyan lighten-2  btn vc-center" ng-click="openNewUserModal()">
+                    <!--增加操作员-->
+                    <i class="mdi mdi-plus"></i>
+                </a>
+            </div>
+
+
+
+
+        </div>
+        <div class="col s12 card">
+            <table class="righted striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>姓名</th>
+                    <th>手机</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-repeat="userItem in userList" class="grey-text text-darken-1">
+                        <td  ng-bind="userItem.uid"></td>
+                        <td  ng-bind="userItem.real_name"></td>
+                        <td ng-bind="userItem.mobile"></td>
+                        <td ng-if="userItem.status==1">可用</td>
+                        <td ng-if="userItem.status==0">停用</td>
+                        <td >
+                            <span><a ng-click="getUserDetail(userItem.uid)"><i class="mdi mdi-eye cyan-text text-lighten-1" ></i></a></span>
+                            <span class="switch" ng-click="changeStatus(userItem.status,userItem.uid)" style="height: 30px;">
+                                <label>
+                                    <input type="checkbox" ng-checked="userItem.status==1">
+                                    <span class="lever"></span>
+                                </label>
+                            </span>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        <!--<div class="col s12">
+            <div class="right">
+                <a class="waves-light waves-effect cyan lighten-1 btn"  id="pre"   ng-click="previous_page()">
+                    上一页
+                </a>
+                <a class="waves-light waves-effect cyan lighten-1 btn" id="next"  ng-click="next_page()">
+                    下一页
+                </a>
+            </div>
+        </div>-->
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="header">
+    <nav class="row cyan lighten-1 z-depth-2 header">
+        <div class="nav-wrapper " >
+            <ul class="left" >
+                <li >
+                    <a id="menu_link"  style="margin-left: 0;display: block" data-activates="slide-out" class="button-collapse "><i class="mdi mdi-menu mdi-36px"></i></a>
+                </li>
+                <li >
+                    <a ><img style="margin:20px 0 0 -20px;width: 64px;" class="responsive-img"  id="brand-logo" src="/assets/images/biz-logo.png" alt=""></a>
+                </li>
+            </ul>
+
+
+
+            <ul class="right">
+                <li>
+                    <a class="right-align" onclick="toggleFullScreen()"><i class="mdi mdi-fullscreen mdi-36px"></i>
+
+                    </a>
+                </li>
+
+                <li>
+                    <a class="right-align"><i class="mdi mdi-account mdi-36px" ng-click="openPasswordModel()" ></i></a>
+                </li>
+                <li ng-click="logOut()">
+                    <a><i class="mdi mdi-exit-to-app mdi-36px"></i></a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+    <div id="user_modal" class="modal">
+        <div class="row" ul-tabs>
+            <h6 class="center">修改密码</h6>
+            <div id="amendPsw" class="col s12" >
+                <form name="amend_userFrom" >
+                    <div class="modal-content">
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="input-field col s12" >
+                                    <i class="mdi mdi-lock-open-outline prefix"></i>
+                                    <input id="user_old_password"  ng-model="originPassword"   type="password" required >
+                                    <label class="grey-text" for="user_old_password">原始密码</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12" >
+                                    <i class="mdi mdi-lock-outline prefix"></i>
+                                    <input ng-pattern="pwdReg" id="user_new_password" ng-model="newPassword" autocomplete="off" type="password"  required>
+                                    <label class="grey-text" for="user_new_password">新密码</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12" >
+                                    <i class="mdi mdi-lock-outline prefix"></i>
+                                    <input  id="user_confirm_password" autocomplete="off" ng-model="confirmPassword" type="password" required>
+                                    <label class="grey-text" for="user_confirm_password">确认密码</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer right">
+                        <button class="btn btn-floating waves-light waves-effect  cyan lighten-1 "style="margin-left: 10px;" ng-click="changePassword()">
+                            <i  class="mdi mdi-check"></i>
+                        </button>
+                        <a style="margin-left: 50px" class="modal-action modal-close waves-light waves-effect red lighten-1 btn btn-floating">
+                            <i  class="mdi mdi-close"></i>
+                        </a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+
+</div>
+

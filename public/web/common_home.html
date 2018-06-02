@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-cn" ng-app="sms_common">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>sms-project</title>
+    <link rel="stylesheet" href="/assets/plugins/materialize/css/materialize.css">
+    <link rel="stylesheet" href="/assets/plugins/alert/sweetalert.css">
+    <link rel="stylesheet" href="/assets/plugins/material_icon/css/materialdesignicons.css">
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+<header type="99" url="/assets/images/biz-logo.png" ></header>
+<ul id="slide-out" side-nav class="side-nav blue-grey darken-4">
+    <li class="nav-logo valign-wrapper " style="border-bottom: 1px solid #182024;background-image: url(/assets/images/menu-bg.jpg);">
+        <div class="row " >
+            <div>
+                <img src="/assets/images/avatar.jpg" class="z-depth-4.jpg" style="width: 64px;height:64px;margin-top: 10px;border-radius: 100%" />
+            </div>
+
+            <div class=" center">
+                <span class="white-text">操作员:</span>
+                <span class="white-text" ng-bind="userName"></span>
+            </div>
+        </div>
+    </li>
+
+    <li class="bold side_navigator">
+        <a href="#!/panel" class="white-text " ><i class="mdi mdi-speedometer white-text " style="font-size: 24px;"></i>仪表盘</a>
+    </li>
+    <li><div class="divider"></div></li>
+    <li class="bold side_navigator">
+        <a href="#!/operate" class="white-text " ><i class="mdi mdi-phone white-text " style="font-size: 24px;"></i>业务操作</a>
+    </li>
+    <li><div class="divider"></div></li>
+</ul>
+
+<div class="ConWrap ">
+    <div class="containerBox" >
+        <div ng-view></div>
+    </div>
+</div>
+
+
+<div class="shadeDowWrap">
+    <div class="shadeDow vc-center">
+        <div class="preloader-wrapper big active ">
+            <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script>
+    //  动态求出主体内容高度，防止遮罩层溢出
+    document.getElementsByClassName("ConWrap")[0].style.height=document.body.scrollHeight-70-70+"px";
+    window.onresize=function () {
+        document.getElementsByClassName("ConWrap")[0].style.height=document.body.scrollHeight-70-70+"px";
+    }
+</script>
+<script src="/assets/plugins/jquery.min.js"></script>
+<script src="/assets/plugins/jquery.form.min.js"></script>
+<script src="/assets/plugins/highcharts.js"></script>
+<script src="/assets/plugins/materialize/js/materialize.js"></script>
+<script src="/assets/plugins/alert/sweetalert.min.js"></script>
+<script src="/assets/plugins/angular/angular.min.js"></script>
+<script src="/assets/plugins/angular/angular-route.min.js"></script>
+<script src="/js/module/app_common_module.js"></script>
+<script src="/assets/plugins/angular/angular-materialize.js"></script>
+<script src="/assets/plugins/angular/angular-cookies.min.js"></script>
+<script src="/js/directive/common_directive.js"></script>
+<script src="/js/service/config_service.js"></script>
+<script src="/js/service/http_service.js"></script>
+<script src="/js/service/common_router.js"></script>
+<script src="/js/host/host_config.js"></script>
+
+<script src="/js/controller/common/panel_controller.js"></script>
+<script src="/js/controller/common/operate_controller.js"></script>
+
+</html>

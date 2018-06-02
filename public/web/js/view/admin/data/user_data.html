@@ -1,0 +1,106 @@
+<div>
+    <div id="uploadModal" class="modal">
+        <form name="change_operatorForm" novalidate>
+            <div class="modal-content">
+                <h6 class="center">导入数据(<a href="/assets/template.csv">csv模版</a>)</h6>
+                <div class="col s12">
+                    <div class=" left">
+                        <form id="file_upload_form">
+                            <div class="file-field input-field">
+                                <div class="btn">
+                                    <span><i class="mdi mdi-file-excel"></i></span>
+                                    <input id="import_file" name="file" type="file">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input id="import_file_text" class="file-path validate" type="text">
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-floating waves-light waves-effect cyan lighten-2 right" style="margin-left: 10px" onclick="angular.element(this).scope().importFile(this)">
+                    <i class="mdi mdi-check"></i>
+                </button>
+                <a  class=" modal-action modal-close waves-effect waves-light grey lighten-1 btn-floating right"  >
+                    <i class="mdi mdi-close"></i>
+                </a>
+            </div>
+        </form>
+    </div>
+    <div id="importModal" class="modal">
+        <form name="change_operatorForm" novalidate>
+            <div class="modal-content">
+                <h6 class="center">数据统计</h6>
+                <div class="row">
+                    <div class="col s12 m4 center">
+                        <span class="cyan-text lighten-2" style="font-size: 24px;">未处理</span><span style="padding-left: 20px;font-size: 18px;">{{unprocessCount}}</span>
+                    </div>
+                    <div class="col s12 m4 center">
+                        <span class="cyan-text lighten-2" style="font-size: 24px;">已处理</span><span style="padding-left: 20px;font-size: 18px;">{{processedCount}}</span>
+                    </div>
+                    <div class="col s12 m4 center">
+                        <span class="cyan-text lighten-2" style="font-size: 24px;">已备注</span><span style="padding-left: 20px;font-size: 18px;">{{remarkedCount}}</span>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+
+                <a  class=" modal-action modal-close waves-effect waves-light grey lighten-1 btn-floating right"  >
+                    <i class="mdi mdi-close"></i>
+                </a>
+            </div>
+        </form>
+    </div>
+    <div class="row" style="padding: 0 2%;">
+        <div class="col s12 card " style="padding: 20px">
+            <div class="left">
+                <select material-select watch ng-model="userId">
+                    <option value="0" selected>请选择</option>
+                    <option ng-value="userItem.uid"  ng-repeat="userItem in userArray">{{userItem.real_name}}</option>
+                </select>
+            </div>
+            <div class="right">
+                <a class="btn-floating btn-large waves-light waves-effect red lighten-2  btn vc-center"
+                   style="margin-right: 10px" ng-click="queryUserPhoneImport()">
+                    <i class="mdi mdi-magnify"></i>
+                </a>
+                <a class="btn-floating btn-large waves-light waves-effect cyan lighten-2  btn vc-center" ng-click="openUploadModal()">
+                    <!--增加操作员-->
+                    <i class="mdi mdi-plus"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="col s12 card">
+            <table class="righted striped">
+                <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>导入时间</th>
+                    <th>文件</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr ng-repeat="importItem in importArray" class="grey-text text-darken-1">
+                    <td >{{importItem.real_name}}</td>
+                    <td > {{importItem.created_on | date : 'yyyy-MM-dd HH:mm:ss'}}</td>
+                    <td><a ng-href={{'/uploads/'+importItem.upload_id}}>下载</a></td>
+                    <td >
+                        <span><a ng-click="getImportDetail(importItem.id)"><i class="mdi mdi-eye cyan-text text-lighten-1" ></i></a></span>
+
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</div>

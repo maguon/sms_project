@@ -59,7 +59,7 @@ function usage(msg) {
     server.listen((opt.port?opt.port:7777), function onListening() {
         server.get('/',restify.serveStatic({
             directory: './public/web',
-            default: 'admin_login.html',
+            default: 'common_login.html',
             maxAge: 0
         }));
         logger.info('LOG-API server has been  started ,listening at %s', server.url);

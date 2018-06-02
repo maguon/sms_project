@@ -59,7 +59,7 @@
                             <i class="mdi mdi-heart red-text lighten-1" style="font-size: 28px" ng-if="userPhone.favor==0"></i>
                             <i class="mdi mdi-heart-off black-text lighten-1" style="font-size: 28px" ng-if="userPhone.favor==1"></i>
                         </a>
-                        <a href="tel:{userPhone.phone}" ng-click="updatePhoneStatus(userPhone.id,$index)"><i class="mdi mdi-phone cyan-text lighten-1" style="font-size: 28px"></i></a>
+                        <a ng-href="{{'tel:'+userPhone.phone}}" ng-click="updatePhoneStatus(userPhone.id,$index)"><i class="mdi mdi-phone cyan-text lighten-1" style="font-size: 28px"></i></a>
                     </span>
 
                 </div>

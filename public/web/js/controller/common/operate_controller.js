@@ -3,10 +3,11 @@ app.controller("operate_controller", ["_basic", "_config", "_host", "$scope", fu
     $scope.phoneArray =[];
     $scope.operateStatus = "1";
     $scope.currentUserPhoneId = null;
-    $scope.dateId =123456;
+    var d = new Date();
+    //$scope.dateId = d.getFullYear()+""+(d.getMonth()+1)+""+d.getDate();
 
     $scope.start = 0;
-    $scope.size =11;
+    $scope.size =13;
     $scope.nextFlag = false;
     $('.datepicker').pickadate({
         today: 'Today',

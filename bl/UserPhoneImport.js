@@ -41,7 +41,7 @@ function queryUserPhoneImportStat(req,res,next){
 function addUserPhoneImport(req,res,next){
     var params = req.params;
     var fullFilePath = req.files.file.path;
-    var tmpArray = req.files.file.path.split('/');
+    var tmpArray = req.files.file.path.split('\\');
     var filePath = tmpArray[tmpArray.length-1];
 
     var dateId = moment(new Date()).format('YYYYMMDD');

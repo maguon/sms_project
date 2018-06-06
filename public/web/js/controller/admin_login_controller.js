@@ -10,7 +10,7 @@ app.controller("admin_login_controller", ['$rootScope','$scope','$location','$q'
             } else {
                 $(".shadeDowWrap").show();
                 _basic.post(_host.api_url+"/admin/do/login", {
-                    "mobile": $scope.mobile,
+                    "userName": $scope.mobile,
                     "password": $scope.password
                 }).then(function(data){
                     $(".shadeDowWrap").hide();
